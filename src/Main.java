@@ -23,7 +23,6 @@ public class Main {
 	public static void startGame()
 	{
 		m.makeMap();
-		EntityGrid[3][3] = new Entity("Ass", 10);
 		EntityGrid[4][4] = new Entity("Item", 10);
 		m.updateMap(3, 3, 4);
 		m.updateMap(4, 4, 10);
