@@ -2,7 +2,7 @@ import java.util.ArrayList;
 
 public class Player extends Entity{
 
-	private ArrayList<Item> inventory = new ArrayList<Item>();
+	private Stack Inventory() = new Stack();
 	private int inventorySize = 2;
 	private int playerNum = 95;
 	private int yPos = 0;
