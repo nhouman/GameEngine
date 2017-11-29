@@ -1,4 +1,5 @@
-
+//Remake map to update in a GUI window that represents the console, but flawlessly
+//updates the graphics to flow a lot smoother
 public class Map {
 
 	private int length = 10;
