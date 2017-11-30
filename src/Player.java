@@ -4,9 +4,9 @@ public class Player extends Entity{
 
 	private LinkedList inventory = new LinkedList();
 	private int inventorySize = 2;
-	private int playerNum = 95;
-	private int yPos = 0;
-	private int xPos = 0;
+	private int playerNum = 95;		//current position of player
+	private int yPos = 0;			//vertical position
+	private int xPos = 0;			//horizontal position
 	
 	public Player(String name, int health) 
 	{
@@ -15,14 +15,14 @@ public class Player extends Entity{
 
 	public void addItem(Item i)
 	{
-		if (inventory.size() >= inventorySize)
+		if (inventory.size() >= inventorySize)		//player inventory compare to player inventory size
 		{
 			System.out.println("Inventory too full, discarding item.");
 		} else
-			inventory.add(i);
+			inventory.add(i);		//adds item to player inventory
 	}
 	
-	public void setPlayerNum(int playerNum)
+	public void setPlayerNum(int playerNum)			//
 	{
 		this.playerNum = playerNum;
 	}

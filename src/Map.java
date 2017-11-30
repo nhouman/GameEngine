@@ -78,4 +78,9 @@ public class Map {
 	{
 		return map;
 	}
+	
+	public void barrier(int x, int y)
+	{
+		
+	}
 }
