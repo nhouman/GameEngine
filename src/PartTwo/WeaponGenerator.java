@@ -8,7 +8,7 @@ public class WeaponGenerator
 													"Initiate Wand", "Grand Mage Wand", "Whip"};
 	
 	private static String[] effects =  new String[] {"Rusty", "Toxic", "Hot", "Charged", "Frozen", "Striker", "Feeble"};
-													//bleed, poison, burn, lightning, freeze, + damage, -damage, 
+													//bleed, -dam, poison, burn, lightning, freeze, + damage, -damage, 
 	
 	public static void randomWeapon()
 	{
@@ -16,6 +16,11 @@ public class WeaponGenerator
 		int i = rand.nextInt(weapons.length);
 		
 		int j = rand.nextInt(effects.length);
-		System.out.println(effects[j] + weapons[i]);
+		
+		int k = rand.nextInt(5);
+		if(k == 4)
+			System.out.println(effects[j] + " " + weapons[i]);
+		else 
+			System.out.println(weapons[i]);
 	}
 }
