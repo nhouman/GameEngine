@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 public class Main {
-
+	
 	static Map m = new Map();
 	static Player p = new Player("Player", 100);
 	static Scanner sc = new Scanner(System.in);

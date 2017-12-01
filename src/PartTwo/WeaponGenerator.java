@@ -9,4 +9,13 @@ public class WeaponGenerator
 	
 	private static String[] effects =  new String[] {"Rusty", "Toxic", "Hot", "Charged", "Frozen", "Striker", "Feeble"};
 													//bleed, poison, burn, lightning, freeze, + damage, -damage, 
+	
+	public static void randomWeapon()
+	{
+		Random rand = new Random();
+		int i = rand.nextInt(weapons.length);
+		
+		int j = rand.nextInt(effects.length);
+		System.out.println(effects[j] + weapons[i]);
+	}
 }
