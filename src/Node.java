@@ -4,7 +4,8 @@ public class Node<E> {
 	/**
 	 * Declares a head and next for the node to use
 	 */
-	private E head, next;
+	private E head;
+	private Node<E> next;
 	
 	/**
 	 * Constructor setting head and next to null
@@ -28,11 +29,11 @@ public class Node<E> {
 	}
 	
 	public E getNext() {
-		return next;
+		return (E) next;
 	}
 	
 	public void setNext(E next) {
-		this.next = next;
+		this.next = (Node<E>) next;
 	}
 	
 	public void setHead(E head) {
