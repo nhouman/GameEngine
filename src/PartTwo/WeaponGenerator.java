@@ -1,41 +1,67 @@
 package PartTwo;
 import java.util.*;
 public class WeaponGenerator 
-{
-	private static String[] weapons = new String[] {"Dagger", "Sword", "Katana","Recurve Bow", "Crossbow", 
-													"Halberd", "Spear", "Revolver", "Double Barrel Shotgun",
-													"Novice Staff", "Initiate Staff", "Grand Mage Staff", "Novice Wand", 
-													"Initiate Wand", "Grand Wizard Wand", "Whip"};
+{	
+	private static ArrayList <String> weapons = new ArrayList<String> (16);
+	//fill weapons list
+	static
+	{
+		weapons.add("Dagger");
+		weapons.add("Sword");
+		weapons.add("Katana");
+		weapons.add("Recurve Bow");
+		weapons.add("Crossbow");
+		weapons.add("Halberd");
+		weapons.add("Spear");
+		weapons.add("Revolver");
+		weapons.add("Double Barrel Shotgun");
+		weapons.add("Novice Staff");
+		weapons.add("Initiate Staff");
+		weapons.add("Grand Mage Staff;");
+		weapons.add("Novice Wand");
+		weapons.add("Initiate Wand");
+		weapons.add("Grand Wizard Wand");
+		weapons.add("Whip");
+	}
 	
-	private static String[] effects =  new String[] {"Rusty", "Toxic", "Hot", "Charged", "Frozen", "Striker", "Feeble"};
-													//bleed + -dam, poison, burn, lightning, freeze, + damage, -damage, 
+	private static ArrayList <String> effects =  new ArrayList <String>(); 
+	//fill effects list
+	static
+	{
+		effects.add("Rusty");
+		effects.add("Feeble");
+		effects.add("Toxic");
+		effects.add("Hot");
+		effects.add("Charged");
+		effects.add("Frozen");
+		effects.add("Striker");	
+	}
 	
 	public static void randomWeapon()
 	{
 		Random rand = new Random();	
-		int i = rand.nextInt(weapons.length);
+		int i = rand.nextInt(weapons.size());
 		int k = rand.nextInt(5);		//gets random num  0 - 4
 		if(k == 4)			//if num = 4, add effect
 		{
-			int j = rand.nextInt(effects.length);		//gets random effect
-			System.out.println(effects[j] + " " + weapons[i]);
+			int j = rand.nextInt(effects.size());		//gets random effect
+			System.out.println(effects.get(j) + " " + weapons.get(i));
 			wDescription(i);
 			eDescription(j);
 		}
 		else 		//else no effect
 		{
-			System.out.println(weapons[i]);	
+			System.out.println(weapons.get(i));	
 			wDescription(i);
-		
 		}
 	}
 	
 	
-	public static void wDescription(int i)
+	public static void wDescription(int i)		//weapon descriptions
 	{
 		String description = "";
 		
-		switch(weapons[i].toUpperCase())
+		switch(weapons.get(i).toUpperCase())
 		{
 		case "DAGGER":
 			description = "A small double edged blade, could be useful.";
@@ -91,25 +117,25 @@ public class WeaponGenerator
 		
 	}
 	
-	public static void eDescription(int j)
+	public static void eDescription(int j) 		//effect descriptions
 	{
 		String desc= "";
-		switch(effects[j].toUpperCase())
+		switch(effects.get(j).toUpperCase())
 		{
 		case "RUSTY":
 			desc = "- damage, + bleed";
 			break;
 		case "TOXIC":
-			desc = "+ poison";
+			desc = "+ poison damage";
 			break;
 		case "HOT":
-			desc = "+ burn";
+			desc = "+ burn damage";
 			break;
 		case "CHARGED":
-			desc = "+ lightning";
+			desc = "+ lightning damage";
 			break;
 		case "FROZEN":
-			desc = "+ freeze";
+			desc = "+ freeze damage ";
 			break;
 		case "STRIKER":
 			desc = "+ damage";
@@ -118,11 +144,20 @@ public class WeaponGenerator
 			desc = "- damage";
 			break;
 		}
-		System.out.println(desc);
+		System.out.println(effects.get(j) + ": " + desc);
 	}
-	public static void chestWeapon()
+	public static void chestWeapon()		//creates a better weapon to be pulled from a chest
 	{
 		Random rand = new Random();
 		
+		effects.remove("Rusty");
+		effects.remove("Feeble");
+		
+		int weapon = rand.nextInt(weapons.size());		//gets weapon
+		int effect = rand.nextInt(effects.size());		//gets effect
+
+		System.out.println(effects.get(effect) + " " + weapons.get(weapon));
+		wDescription(weapon);
+		eDescription(effect);
 	}
 }
