@@ -48,12 +48,15 @@ public class WeaponGenerator
 			System.out.println(effects.get(j) + " " + weapons.get(i));
 			wDescription(i);
 			eDescription(j);
+			getDamage(i);
 		}
 		else 		//else no effect
 		{
 			System.out.println(weapons.get(i));	
 			wDescription(i);
+			getDamage(i);
 		}
+		
 	}
 	
 	
@@ -159,5 +162,9 @@ public class WeaponGenerator
 		System.out.println(effects.get(effect) + " " + weapons.get(weapon));
 		wDescription(weapon);
 		eDescription(effect);
+	}
+	public static void getDamage(int weapon)
+	{
+		 
 	}
 }

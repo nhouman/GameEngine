@@ -42,6 +42,7 @@ public class StartGraphics extends JPanel {
 
 			System.out.println();
 		}
+		g.drawString("^", 0, 0);
 	}
 
 	public static void main(String[] args) throws ClassNotFoundException, InstantiationException, IllegalAccessException, UnsupportedLookAndFeelException, IOException {
