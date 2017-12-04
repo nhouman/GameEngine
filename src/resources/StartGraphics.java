@@ -1,4 +1,4 @@
-package graphics;
+package resources;
 
 //Found from Java2s, modified for our purposes
 
@@ -13,7 +13,6 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
-
 import javax.imageio.ImageIO;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
@@ -21,22 +20,22 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
-
+//Implement a tick-based system that updates the entire screen, then paints it when available
 public class StartGraphics extends JPanel {
 
 	static int length = 640;//X value of window
 	static int width = 480;//Y value of window
 	public void paint(Graphics g) {
-		Dimension d = this.getPreferredSize();
+		//Dimension d = this.getPreferredSize();
 		int fontSize = 15;
 
 		g.setFont(new Font("TimesRoman", Font.PLAIN, fontSize));
 
 		g.setColor(Color.black);
 
-		for (int i = 0; i < length - 20; i +=25)//Change length and  width values so the printed values don't go out of the window
+		for (int i = 0; i < length - 20; i += 25)//Change length and  width values so the printed values don't go out of the window
 		{
-			for (int n = 0; n < width - 30; n+=25)
+			for (int n = 0; n < width - 30; n+= 25)
 			{
 				g.drawString("*", i, n);
 			}
