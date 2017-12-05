@@ -37,9 +37,12 @@ public class WeaponGenerator
 		effects.add("Striker");	
 	}
 	
-	public static void randomWeapon()
+	public static int[] randomWeapon()
 	{
 		Random rand = new Random();	
+		int [] holdweaponDMG = new int [2];
+		int DMGMin;	 // holds wapon dmg min
+		int DMGMax;  //holds weapon dmg max
 		int i = rand.nextInt(weapons.size());
 		int k = rand.nextInt(5);		//gets random num  0 - 4
 		if(k == 4)			//if num = 4, add effect
@@ -48,11 +51,21 @@ public class WeaponGenerator
 			System.out.println(effects.get(j) + " " + weapons.get(i));
 			wDescription(i);
 			eDescription(j);
+			DMGMin = wDMG(i)[0];
+			DMGMax = wDMG(i)[1];
+			holdweaponDMG[0] = DMGMin;
+			holdweaponDMG[1] = DMGMax;
+			return holdweaponDMG;
 		}
 		else 		//else no effect
 		{
 			System.out.println(weapons.get(i));	
 			wDescription(i);
+			DMGMin = wDMG(i)[0];
+			DMGMax = wDMG(i)[1];
+			holdweaponDMG[0] = DMGMin;
+			holdweaponDMG[1] = DMGMax;
+			return holdweaponDMG;
 		}
 	}
 	
@@ -160,4 +173,148 @@ public class WeaponGenerator
 		wDescription(weapon);
 		eDescription(effect);
 	}
+	
+	public static int [] wDMG(int i)		//weapon dmg values
+	{
+		int [] DMGvalues = new int [2];
+		int MaxDMG;
+		int MinDMG;
+		
+		
+		switch(weapons.get(i).toUpperCase())
+		{
+		case "DAGGER":
+		{
+			MinDMG = 1;
+			MaxDMG = 6;
+			DMGvalues[0] = MinDMG;
+			DMGvalues[1] = MaxDMG;
+			return DMGvalues;
+		}
+		case "SWORD":
+		{
+			MinDMG = 3;
+			MaxDMG = 6;
+			DMGvalues[0] = MinDMG;
+			DMGvalues[1] = MaxDMG;
+			return DMGvalues;
+		}
+		case "KATANA":
+		{
+			MinDMG = 4;
+			MaxDMG = 9;
+			DMGvalues[0] = MinDMG;
+			DMGvalues[1] = MaxDMG;
+			return DMGvalues;
+		}
+		case "RECURVE BOW":
+		{
+			MinDMG = 2;
+			MaxDMG = 5;
+			DMGvalues[0] = MinDMG;
+			DMGvalues[1] = MaxDMG;
+			return DMGvalues;
+		}
+		case "CROSSBOW":
+		{
+			MinDMG = 5;
+			MaxDMG = 7;
+			DMGvalues[0] = MinDMG;
+			DMGvalues[1] = MaxDMG;
+			return DMGvalues;
+		}
+		case "HALBERD":
+		{
+			MinDMG = 10;
+			MaxDMG = 14;
+			DMGvalues[0] = MinDMG;
+			DMGvalues[1] = MaxDMG;
+			return DMGvalues;
+		}
+		case "SPEAR":
+		{
+			MinDMG = 1;
+			MaxDMG = 10;
+			DMGvalues[0] = MinDMG;
+			DMGvalues[1] = MaxDMG;
+			return DMGvalues;
+		}
+		case "REVOLVER":
+		{
+			MinDMG = 5;
+			MaxDMG = 14;
+			DMGvalues[0] = MinDMG;
+			DMGvalues[1] = MaxDMG;
+			return DMGvalues;
+		}
+		case "DOUBLE BARREL SHOTGUN":
+		{
+			MinDMG = 7;
+			MaxDMG = 12;
+			DMGvalues[0] = MinDMG;
+			DMGvalues[1] = MaxDMG;
+			return DMGvalues;
+		}
+		case "NOVICE STAFF":
+		{
+			MinDMG = 1;
+			MaxDMG = 4;
+			DMGvalues[0] = MinDMG;
+			DMGvalues[1] = MaxDMG;
+			return DMGvalues;
+		}
+		case "INITIATE STAFF":
+		{
+			MinDMG = 8;
+			MaxDMG = 16;
+			DMGvalues[0] = MinDMG;
+			DMGvalues[1] = MaxDMG;
+			return DMGvalues;
+		}
+		case "GRAND MAGE STAFF":
+		{
+			MinDMG = 17;
+			MaxDMG = 25;
+			DMGvalues[0] = MinDMG;
+			DMGvalues[1] = MaxDMG;
+			return DMGvalues;
+		}
+		case "NOVICE WAND":
+		{
+			MinDMG = 2;
+			MaxDMG = 4;
+			DMGvalues[0] = MinDMG;
+			DMGvalues[1] = MaxDMG;
+			return DMGvalues;
+		}
+		case "INITIATE WAND":
+		{
+			MinDMG = 5;
+			MaxDMG = 8;
+			DMGvalues[0] = MinDMG;
+			DMGvalues[1] = MaxDMG;
+			return DMGvalues;
+		}
+		case "GRAND WIZARD WAND":
+		{
+			MinDMG = 1;
+			MaxDMG = 25;
+			DMGvalues[0] = MinDMG;
+			DMGvalues[1] = MaxDMG;
+			return DMGvalues;
+		}
+		case "WHIP":
+		{
+			MinDMG = 3;
+			MaxDMG = 12;
+			DMGvalues[0] = MinDMG;
+			DMGvalues[1] = MaxDMG;
+			return DMGvalues;
+		}
+		}
+		return DMGvalues;
+		
+	}
+	
+	
 }
