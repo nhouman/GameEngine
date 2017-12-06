@@ -17,7 +17,7 @@ public class Map {
 		
 		for (int i = 0; i < x; i++) {
 			for (int n = 0; n < y; n++) {
-				mapArray[x][y] = "*";
+				mapArray[i][n] = "*";
 			}
 		}
 	}
@@ -33,10 +33,14 @@ public class Map {
 	
 	void addEvent(int x, int xmax, int y, int ymax, String c) {//Reads in an x value to start, an x value to end, y to start and end, and the character it will replace those values with
 	//Ex: Want to replace x 2 - 5 and y 2 - 4 with & -- addEvent(2, 5, 2, 4, &);
-		for (int i = x; i < xmax; i++) {
-			for (int n = y; n < ymax; n++) {
+		for (int i = x; i <= xmax; i++) {
+			for (int n = y; n <= ymax; n++) {
 				mapArray[x][y] = c;
 			}
 		}
+	}
+	
+	String getMap(int tempX, int tempY){
+		return mapArray[tempX][tempY];
 	}
 }

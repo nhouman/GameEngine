@@ -35,29 +35,6 @@ public class WeaponGenerator
 		effects.add("Frosty");
 		effects.add("Striker");	
 	}
-<<<<<<< Updated upstream
-	
-	public static void randomWeapon()
-	{
-		Random rand = new Random();	
-		int i = rand.nextInt(weapons.size());
-		int k = rand.nextInt(5);		//gets random num  0 - 4
-		if(k == 4)			//if num = 4, add effect
-		{
-			int j = rand.nextInt(effects.size());		//gets random effect
-			System.out.println(effects.get(j) + " " + weapons.get(i));
-			wDescription(i);
-			eDescription(j);
-			getDamage(i);
-		}
-		else 		//else no effect
-		{
-			System.out.println(weapons.get(i));	
-			wDescription(i);
-			getDamage(i);
-		}
-		
-=======
 
 	private static String weaponKey = "";
 	private static int damage = 0;
@@ -106,7 +83,6 @@ public class WeaponGenerator
 		wDescription(weaponKey);
 		eDescription(effect);
 		getEffectDamage(effect);
->>>>>>> Stashed changes
 	}
 	
 	private static String getWeapon(int index)		//finds weapon in the HashMap
@@ -215,17 +191,6 @@ public class WeaponGenerator
 		System.out.println(effects.get(j) + ": " + desc);
 	}
 
-<<<<<<< Updated upstream
-		System.out.println(effects.get(effect) + " " + weapons.get(weapon));
-		wDescription(weapon);
-		eDescription(effect);
-	}
-	public static void getDamage(int weapon)
-	{
-		 
-	}
-}
-=======
 	public static void getEffectDamage(int effect)		//calculates effect damage
 	{
 		switch(effects.get(effect).toUpperCase())
@@ -255,4 +220,3 @@ public class WeaponGenerator
 	}//ends getEffectDamage method
 
 }//ends class
->>>>>>> Stashed changes
