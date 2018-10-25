@@ -1,44 +1,39 @@
 package PartTwo;
 import java.util.*;
 
-public class PlayerStats 
-{
-	int Temens;
+public class PlayerStats {
+	static int gold;
+	static int health;
+	static int healthMod;
+	static String name;
 	
-	public static int Playerhealth(int Levels)
-	{
+	public static int playerHealth(int levels){
+		health = 30;
+		healthMod = (health*levels) + (1*levels);
 		
-		int health = 30;
-		int healthmodifier;
-		healthmodifier = (health*Levels) + (1*Levels);
-		
-		if (Levels>1)
-		{
-			health = health + healthmodifier;
-			return health;
-			
-		}
+		if (levels > 1)
+			health = health + healthMod;
 		return health;
-		
-		
 	}
 	
-	public static String Playername()
-	{
+	public static String playerName(){
+		System.out.println("What is your name, traveler?");
 		Scanner in = new Scanner(System.in);
-		String name = in.nextLine();
+		name = in.nextLine();
 		return name;
-		
-		
 	}
 	
-	public static void currency()
-	{
-		
-		
+	public static int currency(){
+		gold += gold;
+		return gold;
 	}
 	
+	public static void inventory() {
+		ArrayList <String> inventory =  new ArrayList <String>();
+		inventory.add(WeaponGenerator.getWeapon());
+	}
 	
-	
-
+	public static void display() {
+		
+	}
 }

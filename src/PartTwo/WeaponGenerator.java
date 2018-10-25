@@ -3,8 +3,7 @@ import java.util.*;
 public class WeaponGenerator 
 {	
 	public static HashMap<String, Integer> weaponDmg = new HashMap<String, Integer>(); 
-	static 
-	{
+	static{
 		weaponDmg.put("Dagger", 2);
 		weaponDmg.put("Sword", 5);
 		weaponDmg.put("Katana",8);
@@ -24,9 +23,7 @@ public class WeaponGenerator
 	}
 
 	private static ArrayList <String> effects =  new ArrayList <String>(); 
-	//fill effects list
-	static
-	{
+	static{
 		effects.add("Rusty");
 		effects.add("Feeble");
 		effects.add("Toxic");
@@ -37,61 +34,56 @@ public class WeaponGenerator
 	}
 
 	private static String weaponKey = "";
+	private static String description = "";	//weapon description
+	private static String desc = "";		//effect description
 	private static int damage = 0;
+	private static int index;
+	
 
-	public static void main(String []args)
-	{
+ 	public static void main(String []args){
 		randomWeapon();
 		System.out.println();
 		chestWeapon();
 	}
 
-	public static void randomWeapon()
-	{
+	
+	public static void randomWeapon(){
 		Random rand = new Random();	
-		int i = rand.nextInt(16);		//gets random weapon
-		weaponKey = getWeapon(i);
-		int k = rand.nextInt(5);					//gets random num  0 - 4
-		int j = rand.nextInt(effects.size());		//gets random effect
-		if(k == 4)									//if num = 4, add effect
-		{
-			System.out.println(effects.get(j) + " " + weaponKey);
-			wDescription(weaponKey);
-			eDescription(j);
-			getEffectDamage(j);
-		}
-		else 		//else no effect
-		{
+		index = rand.nextInt(16);						//gets random weapon
+		weaponKey = getWeapon();
+		int k = rand.nextInt(5);						//gets random num  0 - 4
+		int effect = rand.nextInt(effects.size());		//gets random effect
+		if(k == 4) {									//if num = 4, add effect
+			System.out.println(effects.get(effect) + " " + weaponKey);
+			System.out.println(wDescription(weaponKey));
+			System.out.println(effects.get(effect) + ": " + eDescription(effect));
+			System.out.println("Damage: " + getEffectDamage(effect));
+		}else{ 		//else no effect
 			System.out.println(weaponKey);	
-			wDescription(weaponKey);
+			System.out.println(wDescription(weaponKey));
 			System.out.println("Damage: " + damage);
 		}
-		
 	}
 
-	public static void chestWeapon()		//creates a better weapon to be pulled from a chest
-	{
+	public static void chestWeapon() {		//creates a better weapon to be pulled from a chest
 		Random rand = new Random();
-
+		index = rand.nextInt(weaponDmg.size());
 		effects.remove("Rusty");
 		effects.remove("Feeble");
 
-		weaponKey = getWeapon(rand.nextInt(weaponDmg.size()));		//gets weapon
+		weaponKey = getWeapon();		//gets weapon
 		int effect = rand.nextInt(effects.size());		//gets effect
 
 		System.out.println(effects.get(effect) + " " + weaponKey);
-		wDescription(weaponKey);
-		eDescription(effect);
-		getEffectDamage(effect);
+		System.out.println(wDescription(weaponKey));
+		System.out.println(effects.get(effect) + ": " + eDescription(effect));
+		System.out.println("Damage: " + getEffectDamage(effect));
 	}
 	
-	private static String getWeapon(int index)		//finds weapon in the HashMap
-	{
+	public static String getWeapon() {		//finds weapon in the HashMap
 		int i = 0;
-		for(Map.Entry<String, Integer> entry : weaponDmg.entrySet())
-		{
-			if(index == i)
-			{
+		for(Map.Entry<String, Integer> entry : weaponDmg.entrySet()){
+			if(index == i){
 				weaponKey = entry.getKey();		//sets weaponKey to key value of the entry
 				damage = entry.getValue();		//sets damage to damage value of the entry
 				break;
@@ -102,12 +94,8 @@ public class WeaponGenerator
 		return weaponKey;
 	}
 
-	public static void wDescription(String i)		//weapon descriptions
-	{
-		String description = "";
-
-		switch(weaponKey.toUpperCase())
-		{
+	public static String wDescription(String i) {		//weapon descriptions
+		switch(weaponKey.toUpperCase()){
 		case "DAGGER":
 			description = "A small double edged blade, could be useful.";
 			break;
@@ -158,14 +146,11 @@ public class WeaponGenerator
 			description = "Some braided bits of leather that if moved quick enough make a loud cracking sound. A favorite of archaelogists.";
 			break;
 		}
-		System.out.println(description);
+		return description;
 	}
 
-	public static void eDescription(int j) 		//effect descriptions
-	{
-		String desc= "";
-		switch(effects.get(j).toUpperCase())
-		{
+	public static String eDescription(int j) {		//effect descriptions
+		switch(effects.get(j).toUpperCase()){
 		case "RUSTY":
 			desc = "+1 bleed damage";
 			break;
@@ -188,35 +173,32 @@ public class WeaponGenerator
 			desc = "-2 damage";
 			break;
 		}
-		System.out.println(effects.get(j) + ": " + desc);
+		return desc;
 	}
 
-	public static void getEffectDamage(int effect)		//calculates effect damage
-	{
-		switch(effects.get(effect).toUpperCase())
-		{
+	public static int getEffectDamage(int effect) {		//calculates effect damage
+		switch(effects.get(effect).toUpperCase()){
 		case "RUSTY":
 			damage ++;	//+1 dmg
 			break;
 		case  "TOXIC":
-			damage = damage + 3;	//+3 dmg
+			damage += 3;	//+3 dmg
 			break;
 		case "HOT":		
-			damage = damage + 2;	//+2 dmg
+			damage += 2;	//+2 dmg
 			break;
 		case "CHARGED":
-			damage = damage + 3;	//+3 dmg
+			damage += damage + 3;	//+3 dmg
 			break;
 		case "FROSTY":
-			damage = damage + 2;	//+2 dmg
+			damage += 2;	//+2 dmg
 		case "STRIKER":
-			damage = damage + 5;	//+5 dmg
+			damage += 5;	//+5 dmg
 			break;
 		case "FEEBLE":
-			damage = damage - 2;	//-2 dmg
+			damage -= 2;	//-2 dmg
 			break;
 		}
-		System.out.println("Damage: " + damage);
+		return damage;
 	}//ends getEffectDamage method
-
 }//ends class

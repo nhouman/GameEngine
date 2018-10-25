@@ -1,10 +1,16 @@
 package PartTwo;
 
 import java.*;
-public class Main {
+public class Main{
 	public static void main(String[] args) {//Intro and loop things here
-		int weaponOdds = 0;	//1 is chest weapon, 0 is random weapon
+		
+		PlayerStats.playerName();
+		PlayerStats.displayStats();
+		/*int weaponOdds = 0;	//1 is chest weapon, 0 is random weapon
+		getWeapon(weaponOdds);
+		*/
 	}
+	
 	public static void getWeapon(int x) {
 		if(x == 1)
 			WeaponGenerator.chestWeapon(); //gets a random weapon with a guaranteed good effect
