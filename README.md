@@ -34,6 +34,7 @@ be purchased from shops or lucky chests can be payed to unlock which will reward
 ## Items  
 Items such as weapons can have different damage values and different modifiers that affect the damage value. Currently, each item takes up 1 inventory space. Each item has flavor text associated with it, and modifiers have text with them that show the player what it does.<br/>
 
+## Comments
 (5/20)The code provided here is not the final code that myself nor my group had completed. We had a functional
 engine that could be further built off of. This code was built around December 2017 as a final project for my Data Structures class.
 Neither my group members nor myself were familiar with version control systems, thus none of us any longer have the completed source code. I plan to eventually rework this code to where it was, if not further. I will be adding updates as I feel necessary.
