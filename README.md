@@ -3,7 +3,6 @@ This code is meant to be further built upon by whomever would want to use it, an
 implemented by this engine:
 - Storyline
 - Inventory
-- Items
 - Combat
 - Leveling
 - Map
