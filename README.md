@@ -11,8 +11,7 @@ implemented by this engine:
 - Items
   
 ## Storyline  
-The storyline can be given through drops from enemies, or a quest book that the character comes accross. Completion of quests can  
-reward experience points or loot items.<br/>
+The storyline can be given through drops from enemies, or a quest book that the character comes accross. Completion of quests can reward experience points or loot items.<br/>
 
 ## Inventory  
 The inventory system should display the character name, any currency they have, the amount of space available for loot, the  
