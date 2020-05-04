@@ -18,12 +18,10 @@ The inventory system should display the character name, any currency they have, 
 loot they have in the inventory already, and the ability to obtain more inventory space if the character finds a backpack.<br/>
 
 ## Combat  
-The combat system is meant to get progressively harder the more enemies are defeated. Defeated enemies have a chance to drop loot.  
-All defeated enemies will also give the player experience points based on difficulty. Enemies will have the chance to defeat the player, and if that happens then the player will lose all experience in trhat level<br/>
+The combat system is meant to get progressively harder the more enemies are defeated. Defeated enemies have a chance to drop loot. All defeated enemies will also give the player experience points based on difficulty. Enemies will have the chance to defeat the player, and if that happens then the player will lose all experience in trhat level<br/>
 
 ## Leveling  
-The leveling system keeps track of the experience points(XP) the player has obtained. May add in a skill line system that allows the character to obtain skills with skill points earned from leveling up. XP can be earned from defeating enemies, using special items,  
-or completing quests if quests are implemented.<br/>
+The leveling system keeps track of the experience points(XP) the player has obtained. May add in a skill line system that allows the character to obtain skills with skill points earned from leveling up. XP can be earned from defeating enemies, using special items, or completing quests if quests are implemented.<br/>
 
 ## Map  
 The map is a top down visualization of the explorable area. The character is moved throughout the map by using the WASD or arrow keys.
